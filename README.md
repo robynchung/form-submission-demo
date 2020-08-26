@@ -23,5 +23,5 @@ Please have your submission in by <b>Sunday August 30th at midnight </b>.
     - If you made any assumptions, what are they
     - Outline what else needs to be done if given more time
     - Instructions on how to run it
-6. Send via email to noor.syed@codefor.ca 
+6. Send an email to noor.syed@codefor.ca and jasper.chan@codefor.ca to let us know your submission has been completed.
 
