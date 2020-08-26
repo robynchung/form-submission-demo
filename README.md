@@ -9,7 +9,7 @@ There is no need to build any backend (api layer, server, database). For simulat
 
 ## Duration
 
-Up to 8 hours. We do not expect you to complete the assessment in this time.
+Please set aside up to 8 hours to work on this challenge. We are interested in seeing how far you can get with 8 hours and therefore, completion is not the highest priority.
 
 ## Submission
 1.  Fork this repo
