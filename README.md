@@ -9,7 +9,9 @@ There is no need to build any backend (api layer, server, database). For simulat
 
 ## Duration
 
-Please set aside up to 8 hours to work on this challenge. We are interested in seeing how far you can get with 8 hours and therefore, completion is not the highest priority. Please have your submission in by Sunday August 30th at midnight.
+Please set aside up to 8 hours to work on this challenge. We are interested in seeing how far you can get with 8 hours and therefore, completion is not the highest priority. 
+
+Please have your submission in by <b>Sunday August 30th at midnight </b>.
 
 ## Submission
 1.  Fork this repo
