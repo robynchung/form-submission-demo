@@ -2,7 +2,7 @@
 
 ## Interview Task
 
-Build the Patient Referral Form using this [design spec](https://www.figma.com/file/mviScHVBuziEsW5hC5JaPr/Patient-Referral-Form-interview-Copy?node-id=0%3A1).
+Build a Patient Referral Form using this [design spec](https://www.figma.com/file/mviScHVBuziEsW5hC5JaPr/Patient-Referral-Form-interview-Copy?node-id=0%3A1).
 
 There is no need to build any backend (api layer, server, database). For simulating form submission, you can do a POST to /api/referrals
 
