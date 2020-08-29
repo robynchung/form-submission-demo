@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 // core
-import { makeStyles } from "@material-ui/core/styles";
-import Accordion from "@material-ui/core/Accordion";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import MuiAccordion from "@material-ui/core/Accordion";
 
 // components
 import PageName from "./components/PageName";
@@ -11,21 +11,32 @@ import FormSummary from "./components/Form/FormSummary";
 import FormDetail from "./components/Form/FormDetail";
 import Message from "./components/Message";
 
-const useStyles = makeStyles(theme => ({}));
+const Accordion = withStyles({
+  root: {
+    borderRadius: 4,
+    boxShadow: "none",
+    marginBottom: 8,
+    overflow: "hidden",
+
+    "&$expanded": {
+      margin: 0
+    }
+  }
+})(MuiAccordion);
 
 function App() {
-  const classes = useStyles();
+  const [isSuccess, setIsSuccess] = useState(false);
 
   return (
     <div className="body-wrapper">
       <PageName />
 
-      <Message />
+      {isSuccess && <Message />}
 
       <main className="container">
         <Header />
 
-        <form className={classes.root} style={{ width: "100%" }}>
+        <form style={{ width: "100%" }}>
           <Accordion>
             <FormSummary />
             <FormDetail />

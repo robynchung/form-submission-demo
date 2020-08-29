@@ -10,9 +10,11 @@
   --white: #ffffff;
 }
 
-@import "./components/PageName.css";
-@import "./components/Message.css";
 @import "./components/Header.css";
+@import "./components/Message.css";
+@import "./components/Number.css";
+@import "./components/PageName.css";
+@import "./components/Form//FormSummary.css";
 
 * {
   box-sizing: border-box;

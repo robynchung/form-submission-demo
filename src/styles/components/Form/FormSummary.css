@@ -1,4 +1,25 @@
 .form-summary-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-summary-title-container {
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+
+.form-summary-new-referral {
+  color: var(--blue-level2);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  padding-left: 16px;
+}
+
+.form-summary-trash-can {
+  align-items: center;
+  display: flex;
+  font-size: 10px;
 }
