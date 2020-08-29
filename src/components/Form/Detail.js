@@ -8,27 +8,16 @@ import Grid from "@material-ui/core/Grid";
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 
-function FormDetail() {
+import InputField from "./InputField";
+
+function Detail() {
   const [address, setAddress] = React.useState("");
 
   return (
     <AccordionDetails>
       <Grid container spacing={3}>
-        <Grid item xs={6}>
-          <FormControl>
-            <InputLabel htmlFor="component-helper">Name</InputLabel>
-            <Input id="component-helper" aria-describedby="component-helper-text" />
-            <FormHelperText id="component-helper-text">Some important helper text</FormHelperText>
-          </FormControl>
-        </Grid>
-
-        <Grid item xs={6}>
-          <FormControl>
-            <InputLabel htmlFor="component-helper">Name</InputLabel>
-            <Input id="component-helper" aria-describedby="component-helper-text" />
-            <FormHelperText id="component-helper-text">Some important helper text</FormHelperText>
-          </FormControl>
-        </Grid>
+        <InputField />
+        <InputField />
 
         <Grid item xs={6}>
           <PlacesAutocomplete
@@ -75,4 +64,4 @@ function FormDetail() {
   );
 }
 
-export default FormDetail;
+export default Detail;

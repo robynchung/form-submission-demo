@@ -4,7 +4,7 @@ import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 
 import DeleteIcon from "../Icons/DeleteIcon";
 import ExpandMoreIcon from "../Icons/ExpandMoreIcon";
-import NameTitle from "../Form/NameTitle";
+import NameTitle from "./NameTitle";
 
 const AccordionSummary = withStyles({
   root: {
@@ -21,7 +21,7 @@ const AccordionSummary = withStyles({
   expanded: {}
 })(MuiAccordionSummary);
 
-function FormSummary() {
+function Summary() {
   const classes = withStyles();
 
   return (
@@ -38,4 +38,4 @@ function FormSummary() {
   );
 }
 
-export default FormSummary;
+export default Summary;

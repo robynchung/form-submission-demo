@@ -7,8 +7,8 @@ import MuiAccordion from "@material-ui/core/Accordion";
 // components
 import PageName from "./components/PageName";
 import Header from "./components/Header";
-import FormSummary from "./components/Form/FormSummary";
-import FormDetail from "./components/Form/FormDetail";
+import Summary from "./components/Form/Summary";
+import Detail from "./components/Form/Detail";
 import Message from "./components/Message";
 
 const Accordion = withStyles({
@@ -38,13 +38,13 @@ function App() {
 
         <form style={{ width: "100%" }}>
           <Accordion>
-            <FormSummary />
-            <FormDetail />
+            <Summary />
+            <Detail />
           </Accordion>
 
           <Accordion>
-            <FormSummary />
-            <FormDetail />
+            <Summary />
+            <Detail />
           </Accordion>
         </form>
         <button>+ ADD ANOTHER PATIENT</button>
