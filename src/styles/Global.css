@@ -11,13 +11,16 @@
 }
 
 @import "./components/PageName.css";
+@import "./components/Message.css";
+@import "./components/Header.css";
 
 * {
   box-sizing: border-box;
 }
 
 html,
-body {
+body,
+p {
   margin: 0;
   padding: 0;
 }
@@ -26,4 +29,15 @@ body {
   background-color: #cde7ed;
   color: var(--dark-blue-level1);
   font-family: "Montserrat", sans-serif;
+}
+
+.body-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container {
+  width: 782px;
 }

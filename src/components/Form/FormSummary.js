@@ -6,7 +6,12 @@ import DeleteIcon from "@material-ui/icons/Delete";
 function FormSummary() {
   return (
     <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-      <DeleteIcon />
+      <div>
+        <span>New Referral</span>
+      </div>
+      <div>
+        <DeleteIcon />
+      </div>
     </AccordionSummary>
   );
 }

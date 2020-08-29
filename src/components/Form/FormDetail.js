@@ -13,8 +13,6 @@ function FormDetail() {
 
   return (
     <AccordionDetails>
-      <div></div>
-
       <Grid container spacing={3}>
         <Grid item xs={6}>
           <FormControl>
