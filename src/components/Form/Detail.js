@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import AddressInputField from "./AddressInputField";
 import Grid from "@material-ui/core/Grid";
@@ -9,6 +9,7 @@ import AccountCircleFormIcon from "../Icons/AccountCircleFormIcon";
 import CakeFormIcon from "../Icons/CakeFormIcon";
 import EmailFormIcon from "../Icons/EmailFormIcon";
 import PhoneFormIcon from "../Icons/PhoneFormIcon";
+import FormContext from "../../contexts/Form";
 
 const AccordionDetails = withStyles({
   root: {
@@ -19,33 +20,53 @@ const AccordionDetails = withStyles({
 })(MuiAccordionDetails);
 
 function Detail() {
-  const [address, setAddress] = React.useState("");
+  const context = useContext(FormContext.Context);
 
   return (
     <AccordionDetails>
       <Grid container spacing={3}>
         <Grid item xs={6}>
-          <InputField label="First Name" required={true} icon={<AccountCircleFormIcon />} />
+          <InputField
+            icon={<AccountCircleFormIcon />}
+            label="First Name"
+            onChange={event => context.setStateValue("firstName", event.target.value)}
+            required={true}
+          />
         </Grid>
 
         <Grid item xs={6}>
-          <InputField label="Last Name" required={true} icon={<AccountCircleFormIcon />} />
+          <InputField
+            label="Last Name"
+            onChange={event => context.setStateValue("lastName", event.target.value)}
+            required={true}
+            icon={<AccountCircleFormIcon />}
+          />
         </Grid>
 
         <Grid item xs={6}>
-          <InputField label="Date of Birth" required={true} icon={<CakeFormIcon />} />
+          <InputField
+            label="Date of Birth"
+            onChange={event => context.setStateValue("birthDate", event.target.value)}
+            required={true}
+            icon={<CakeFormIcon />}
+          />
         </Grid>
 
         <Grid item xs={6}>
-          <InputField label="Contact Language" required={true} icon={<LanguageFormIcon />} />
+          <InputField
+            label="Contact Language"
+            onChange={event => context.setStateValue("language", event.target.value)}
+            required={true}
+            icon={<LanguageFormIcon />}
+          />
         </Grid>
 
         <Grid item xs={6}>
-          <InputField label="Phone" required={true} icon={<PhoneFormIcon />} />
+          <InputField label="Phone" required={true} onChange={event => context.setStateValue("phone", event.target.value)} icon={<PhoneFormIcon />} />
         </Grid>
 
         <Grid item xs={6}>
-          <InputField label="Email" required={true} icon={<EmailFormIcon />} />
+          <InputField label="Email" onChange={event => context.setStateValue("eMail", event.target.value)} required={true} icon={<EmailFormIcon />} />
         </Grid>
 
         <Grid className="form-detail-address-container" item xs={12}>

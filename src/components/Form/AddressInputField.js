@@ -1,25 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import PlacesAutocomplete from "react-places-autocomplete";
-import Grid from "@material-ui/core/Grid";
-
-import MuiInput from "@material-ui/core/Input";
-import MuiInputLabel from "@material-ui/core/InputLabel";
-
 import InputField from "./InputField";
+import FormContext from "../../contexts/Form";
 
 function AddressInputField() {
-  const [address, setAddress] = React.useState("");
+  const context = useContext(FormContext.Context);
 
   return (
     <PlacesAutocomplete
       onChange={value => {
-        setAddress(value);
+        context.setStateValue("address", value);
       }}
-      value={address}
+      value={context.address}
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => {
-        console.log(getInputProps);
-
         return (
           <>
             <InputField label="Address" getInputProps={getInputProps} width={12} required={true} />

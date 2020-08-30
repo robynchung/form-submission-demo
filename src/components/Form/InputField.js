@@ -1,8 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import MuiFormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import Grid from "@material-ui/core/Grid";
+import MuiFormControl from "@material-ui/core/FormControl";
 import MuiInput from "@material-ui/core/Input";
 import MuiInputLabel from "@material-ui/core/InputLabel";
 
@@ -42,7 +41,7 @@ const Input = withStyles({
 })(MuiInput);
 
 function InputField(props) {
-  const { helperText, icon, label, required, getInputProps } = props;
+  const { helperText, icon, label, required, getInputProps, onChange } = props;
 
   return (
     <div className="form-input-field-grid">
@@ -56,6 +55,7 @@ function InputField(props) {
           id="component-helper"
           aria-describedby="component-helper-text"
           disableUnderline={true}
+          onChange={onChange}
           {...(getInputProps
             ? {
                 ...getInputProps({
