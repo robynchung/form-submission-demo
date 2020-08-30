@@ -3,9 +3,11 @@ import PlacesAutocomplete from "react-places-autocomplete";
 import InputField from "./InputField";
 import FormContext from "../../contexts/Form";
 
-function AddressInputField() {
+function AddressInputField(props) {
+  const { value } = props;
   const context = useContext(FormContext.Context);
 
+  console.log(value);
   return (
     <PlacesAutocomplete
       onChange={value => {
@@ -16,7 +18,7 @@ function AddressInputField() {
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => {
         return (
           <>
-            <InputField label="Address" getInputProps={getInputProps} width={12} required={true} />
+            <InputField label="Address" getInputProps={getInputProps} width={12} required={true} value={value} />
             <div className="form-address-input-field-container">
               {loading && <div>Loading...</div>}
               {suggestions.map(suggestion => {

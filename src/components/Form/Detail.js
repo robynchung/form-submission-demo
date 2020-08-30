@@ -19,7 +19,11 @@ const AccordionDetails = withStyles({
   }
 })(MuiAccordionDetails);
 
-function Detail() {
+function Detail(props) {
+  const { referral } = props;
+
+  console.log(referral);
+
   const context = useContext(FormContext.Context);
 
   return (
@@ -31,6 +35,7 @@ function Detail() {
             label="First Name"
             onChange={event => context.setStateValue("firstName", event.target.value)}
             required={true}
+            value={referral?.firstName}
           />
         </Grid>
 
@@ -40,6 +45,7 @@ function Detail() {
             onChange={event => context.setStateValue("lastName", event.target.value)}
             required={true}
             icon={<AccountCircleFormIcon />}
+            value={referral?.lastName}
           />
         </Grid>
 
@@ -49,6 +55,7 @@ function Detail() {
             onChange={event => context.setStateValue("birthDate", event.target.value)}
             required={true}
             icon={<CakeFormIcon />}
+            value={referral?.birthDate}
           />
         </Grid>
 
@@ -58,23 +65,36 @@ function Detail() {
             onChange={event => context.setStateValue("language", event.target.value)}
             required={true}
             icon={<LanguageFormIcon />}
+            value={referral?.language}
           />
         </Grid>
 
         <Grid item xs={6}>
-          <InputField label="Phone" required={true} onChange={event => context.setStateValue("phone", event.target.value)} icon={<PhoneFormIcon />} />
+          <InputField
+            label="Phone"
+            required={true}
+            onChange={event => context.setStateValue("phone", event.target.value)}
+            icon={<PhoneFormIcon />}
+            value={referral?.phone}
+          />
         </Grid>
 
         <Grid item xs={6}>
-          <InputField label="Email" onChange={event => context.setStateValue("eMail", event.target.value)} required={true} icon={<EmailFormIcon />} />
+          <InputField
+            label="Email"
+            onChange={event => context.setStateValue("eMail", event.target.value)}
+            required={true}
+            icon={<EmailFormIcon />}
+            value={referral?.eMail}
+          />
         </Grid>
 
         <Grid className="form-detail-address-container" item xs={12}>
-          <AddressInputField />
+          <AddressInputField value={referral?.address} />
         </Grid>
 
         <Grid item xs={12}>
-          <InputField label="Notes/Reason" />
+          <InputField label="Notes/Reason" value={referral?.note} />
         </Grid>
       </Grid>
     </AccordionDetails>

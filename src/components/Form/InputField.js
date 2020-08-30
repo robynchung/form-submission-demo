@@ -41,7 +41,7 @@ const Input = withStyles({
 })(MuiInput);
 
 function InputField(props) {
-  const { helperText, icon, label, required, getInputProps, onChange } = props;
+  const { helperText, icon, label, required, getInputProps, onChange, value } = props;
 
   return (
     <div className="form-input-field-grid">
@@ -56,6 +56,7 @@ function InputField(props) {
           aria-describedby="component-helper-text"
           disableUnderline={true}
           onChange={onChange}
+          value={value}
           {...(getInputProps
             ? {
                 ...getInputProps({

@@ -22,11 +22,14 @@ const Accordion = withStyles({
   }
 })(MuiAccordion);
 
-function Container() {
+function Container(props) {
+  const { referral, index } = props;
+
+  console.log(referral);
   return (
     <Accordion>
-      <Summary />
-      <Detail />
+      <Summary firstName={referral?.firstName} lastName={referral?.lastName} index={index} />
+      <Detail referral={referral} />
     </Accordion>
   );
 }

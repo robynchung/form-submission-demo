@@ -20,19 +20,42 @@ class FormProvider extends Component {
     this.setState({ [name]: value });
   };
 
+  removeReferral = index => {
+    const newReferral = [...this.state.referral];
+
+    newReferral.splice(index, 1);
+
+    this.setState({ referral: newReferral });
+  };
+
   onClickAddReferal = event => {
     event.preventDefault();
 
-    if (this.state.referral.length <= 5) {
+    const { address, birthDate, eMail, firstName, language, lastName, note, phone } = this.state;
+
+    if (address && birthDate && eMail && firstName && language && lastName && phone) {
       this.setState({
-        address: "",
-        birthDate: "",
-        eMail: "",
-        firstName: "",
-        isSuccess: false,
-        lastName: "",
-        note: ""
+        referral: [...this.state.referral, { firstName, lastName, birthDate, language, phone, eMail, address, note }]
       });
+
+      if (this.state.referral.length <= 5) {
+        this.setState(
+          {
+            address: "",
+            birthDate: "",
+            eMail: "",
+            firstName: "",
+            isSuccess: false,
+            language: "",
+            lastName: "",
+            note: "",
+            phone: ""
+          },
+          () => console.log(this.state)
+        );
+      }
+    } else {
+      alert("please fill the form");
     }
   };
 

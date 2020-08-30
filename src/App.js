@@ -12,11 +12,19 @@ function App() {
   const renderReferralList = () => {
     if (context.referral) {
       return context.referral.length > 0 ? (
-        context.referral.map(referral => {
-          return <Container referral={referral} />;
-        })
+        <>
+          {context.referral.map((referral, index) => {
+            return (
+              <>
+                <Container key={index} referral={referral} index={index + 1} />
+              </>
+            );
+          })}
+
+          <Container index={context.referral.length + 1} />
+        </>
       ) : (
-        <Container />
+        <Container index={context.referral.length + 1} />
       );
     }
   };
