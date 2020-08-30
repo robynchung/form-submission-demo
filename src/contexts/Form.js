@@ -34,20 +34,16 @@ class FormProvider extends Component {
 
     const { address, birthDate, eMail, firstName, language, lastName, note, phone, referral } = this.state;
 
-    console.log(referral.length);
-
-    if (referral.length > 5) {
+    if (referral.length > 4) {
       alert("cannot add referral over 5");
-    }
+    } else {
+      if (address && birthDate && eMail && firstName && language && lastName && phone) {
+        this.setState({
+          referral: [...this.state.referral, { firstName, lastName, birthDate, language, phone, eMail, address, note }]
+        });
 
-    if (address && birthDate && eMail && firstName && language && lastName && phone) {
-      this.setState({
-        referral: [...this.state.referral, { firstName, lastName, birthDate, language, phone, eMail, address, note }]
-      });
-
-      if (this.state.referral.length <= 5) {
-        this.setState(
-          {
+        if (this.state.referral.length <= 5) {
+          this.setState({
             address: "",
             birthDate: "",
             eMail: "",
@@ -57,17 +53,29 @@ class FormProvider extends Component {
             lastName: "",
             note: "",
             phone: ""
-          },
-          () => console.log(this.state)
-        );
+          });
+        }
+      } else {
+        alert("please fill the form");
       }
-    } else {
-      alert("please fill the form");
     }
   };
 
-  onSubmitReferralList = async () => {
-    axios.post("url", { referral: this.state.referral });
+  onSubmitReferralList = async event => {
+    event.preventDefault();
+
+    if (this.state.referral.length > 0) {
+      axios
+        .post("url", { referral: this.state.referral })
+        .then(response => {
+          if (response.status === 200) {
+            this.setState({ referral: [], isSuccess: true });
+          }
+        })
+        .catch(error => alert(error));
+    } else {
+      alert("cannot submit without referral");
+    }
   };
 
   render() {
@@ -76,6 +84,7 @@ class FormProvider extends Component {
         value={{
           ...this.state,
           onClickAddReferal: this.onClickAddReferal,
+          onSubmitReferralList: this.onSubmitReferralList,
           setStateValue: this.setStateValue
         }}
       >

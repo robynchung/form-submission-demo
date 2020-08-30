@@ -22,8 +22,6 @@ const AccordionDetails = withStyles({
 function Detail(props) {
   const { referral } = props;
 
-  console.log(referral);
-
   const context = useContext(FormContext.Context);
 
   return (
@@ -35,7 +33,7 @@ function Detail(props) {
             label="First Name"
             onChange={event => context.setStateValue("firstName", event.target.value)}
             required={true}
-            value={referral?.firstName}
+            value={referral ? referral?.firstName : context.firstName}
           />
         </Grid>
 
@@ -45,7 +43,7 @@ function Detail(props) {
             onChange={event => context.setStateValue("lastName", event.target.value)}
             required={true}
             icon={<AccountCircleFormIcon />}
-            value={referral?.lastName}
+            value={referral ? referral?.lastName : context.lastName}
           />
         </Grid>
 
@@ -55,7 +53,7 @@ function Detail(props) {
             onChange={event => context.setStateValue("birthDate", event.target.value)}
             required={true}
             icon={<CakeFormIcon />}
-            value={referral?.birthDate}
+            value={referral ? referral?.birthDate : context.birthDate}
           />
         </Grid>
 
@@ -65,7 +63,7 @@ function Detail(props) {
             onChange={event => context.setStateValue("language", event.target.value)}
             required={true}
             icon={<LanguageFormIcon />}
-            value={referral?.language}
+            value={referral ? referral?.language : context.language}
           />
         </Grid>
 
@@ -75,7 +73,7 @@ function Detail(props) {
             required={true}
             onChange={event => context.setStateValue("phone", event.target.value)}
             icon={<PhoneFormIcon />}
-            value={referral?.phone}
+            value={referral ? referral?.phone : context.phone}
           />
         </Grid>
 
@@ -85,7 +83,7 @@ function Detail(props) {
             onChange={event => context.setStateValue("eMail", event.target.value)}
             required={true}
             icon={<EmailFormIcon />}
-            value={referral?.eMail}
+            value={referral ? referral?.eMail : context.eMail}
           />
         </Grid>
 
@@ -94,7 +92,11 @@ function Detail(props) {
         </Grid>
 
         <Grid item xs={12}>
-          <InputField label="Notes/Reason" onChange={event => context.setStateValue("note", event.target.value)} value={referral?.note} />
+          <InputField
+            label="Notes/Reason"
+            onChange={event => context.setStateValue("note", event.target.value)}
+            value={referral ? referral?.note : context.note}
+          />
         </Grid>
       </Grid>
     </AccordionDetails>

@@ -25,7 +25,6 @@ const Accordion = withStyles({
 function Container(props) {
   const { referral, index } = props;
 
-  console.log(referral);
   return (
     <Accordion>
       <Summary firstName={referral?.firstName} lastName={referral?.lastName} index={index} />
