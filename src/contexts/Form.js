@@ -1,4 +1,5 @@
 import React, { Component, createContext } from "react";
+import axios from "axios";
 
 const Context = createContext({});
 
@@ -31,7 +32,13 @@ class FormProvider extends Component {
   onClickAddReferal = event => {
     event.preventDefault();
 
-    const { address, birthDate, eMail, firstName, language, lastName, note, phone } = this.state;
+    const { address, birthDate, eMail, firstName, language, lastName, note, phone, referral } = this.state;
+
+    console.log(referral.length);
+
+    if (referral.length > 5) {
+      alert("cannot add referral over 5");
+    }
 
     if (address && birthDate && eMail && firstName && language && lastName && phone) {
       this.setState({
@@ -57,6 +64,10 @@ class FormProvider extends Component {
     } else {
       alert("please fill the form");
     }
+  };
+
+  onSubmitReferralList = async () => {
+    axios.post("url", { referral: this.state.referral });
   };
 
   render() {

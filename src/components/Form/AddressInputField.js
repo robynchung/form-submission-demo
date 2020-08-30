@@ -7,18 +7,17 @@ function AddressInputField(props) {
   const { value } = props;
   const context = useContext(FormContext.Context);
 
-  console.log(value);
   return (
     <PlacesAutocomplete
-      onChange={value => {
-        context.setStateValue("address", value);
+      onChange={placeValue => {
+        context.setStateValue("address", placeValue);
       }}
-      value={context.address}
+      value={value || context.address}
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => {
         return (
           <>
-            <InputField label="Address" getInputProps={getInputProps} width={12} required={true} value={value} />
+            <InputField label="Address" getInputProps={getInputProps} width={12} required={true} />
             <div className="form-address-input-field-container">
               {loading && <div>Loading...</div>}
               {suggestions.map(suggestion => {

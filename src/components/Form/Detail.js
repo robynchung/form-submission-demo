@@ -94,7 +94,7 @@ function Detail(props) {
         </Grid>
 
         <Grid item xs={12}>
-          <InputField label="Notes/Reason" value={referral?.note} />
+          <InputField label="Notes/Reason" onChange={event => context.setStateValue("note", event.target.value)} value={referral?.note} />
         </Grid>
       </Grid>
     </AccordionDetails>
