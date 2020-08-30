@@ -9,4 +9,10 @@
   justify-content: center;
   line-height: 16px;
   width: 40px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.number-container.expended {
+  border-bottom-left-radius: 0px;
 }

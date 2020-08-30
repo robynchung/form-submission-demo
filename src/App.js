@@ -1,31 +1,18 @@
 import React, { useState } from "react";
 
-// core
-import { makeStyles, withStyles } from "@material-ui/core/styles";
-import MuiAccordion from "@material-ui/core/Accordion";
-
 // components
 import PageName from "./components/PageName";
 import Header from "./components/Header";
-import Summary from "./components/Form/Summary";
-import Detail from "./components/Form/Detail";
 import Message from "./components/Message";
-
-const Accordion = withStyles({
-  root: {
-    borderRadius: 4,
-    boxShadow: "none",
-    marginBottom: 8,
-    overflow: "hidden",
-
-    "&$expanded": {
-      margin: 0
-    }
-  }
-})(MuiAccordion);
+import Container from "./components/Form/Cotainer";
+import Button from "./components/Button";
 
 function App() {
   const [isSuccess, setIsSuccess] = useState(false);
+
+  const onSubmit = event => {
+    event.preventDefault();
+  };
 
   return (
     <div className="body-wrapper">
@@ -35,20 +22,16 @@ function App() {
 
       <main className="container">
         <Header />
+        <form style={{ width: "100%" }} onSubmit={event => onSubmit(event)}>
+          <Container />
 
-        <form style={{ width: "100%" }}>
-          <Accordion>
-            <Summary />
-            <Detail />
-          </Accordion>
+          <Container />
 
-          <Accordion>
-            <Summary />
-            <Detail />
-          </Accordion>
+          <div className="button-container">
+            <button className="button-add-patient">+ ADD ANOTHER PATIENT</button>
+            <Button className="button-send" description="SEND REFERRALS" type="submit" />
+          </div>
         </form>
-        <button>+ ADD ANOTHER PATIENT</button>
-        <button>SEND REFERRALS</button>
       </main>
     </div>
   );

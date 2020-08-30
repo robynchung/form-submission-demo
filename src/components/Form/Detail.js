@@ -1,14 +1,22 @@
 import React from "react";
-import { geocodeByAddress, geocodeByPlaceId, getLatLng } from "react-places-autocomplete";
-import PlacesAutocomplete from "react-places-autocomplete";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import FormControl from "@material-ui/core/FormControl";
-import FormHelperText from "@material-ui/core/FormHelperText";
+import { withStyles } from "@material-ui/core/styles";
+import AddressInputField from "./AddressInputField";
 import Grid from "@material-ui/core/Grid";
-import Input from "@material-ui/core/Input";
-import InputLabel from "@material-ui/core/InputLabel";
-
 import InputField from "./InputField";
+import LanguageFormIcon from "../Icons/LanguageFormIcon";
+import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
+import AccountCircleFormIcon from "../Icons/AccountCircleFormIcon";
+import CakeFormIcon from "../Icons/CakeFormIcon";
+import EmailFormIcon from "../Icons/EmailFormIcon";
+import PhoneFormIcon from "../Icons/PhoneFormIcon";
+
+const AccordionDetails = withStyles({
+  root: {
+    paddingBottom: 22,
+    paddingLeft: 56,
+    paddingRight: 56
+  }
+})(MuiAccordionDetails);
 
 function Detail() {
   const [address, setAddress] = React.useState("");
@@ -16,48 +24,36 @@ function Detail() {
   return (
     <AccordionDetails>
       <Grid container spacing={3}>
-        <InputField />
-        <InputField />
+        <Grid item xs={6}>
+          <InputField label="First Name" required={true} icon={<AccountCircleFormIcon />} />
+        </Grid>
 
         <Grid item xs={6}>
-          <PlacesAutocomplete
-            value={address}
-            onChange={value => {
-              setAddress(value);
-            }}
-            onSelect={event => console.log(event)}
-          >
-            {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-              <div>
-                <input
-                  {...getInputProps({
-                    placeholder: "Search Places ...",
-                    className: "location-search-input"
-                  })}
-                />
-                <div className="autocomplete-dropdown-container">
-                  {loading && <div>Loading...</div>}
-                  {suggestions.map(suggestion => {
-                    const className = suggestion.active ? "suggestion-item--active" : "suggestion-item";
-                    // inline style for demonstration purpose
-                    const style = suggestion.active
-                      ? { backgroundColor: "#fafafa", cursor: "pointer" }
-                      : { backgroundColor: "#ffffff", cursor: "pointer" };
-                    return (
-                      <div
-                        {...getSuggestionItemProps(suggestion, {
-                          className,
-                          style
-                        })}
-                      >
-                        <span>{suggestion.description}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-          </PlacesAutocomplete>
+          <InputField label="Last Name" required={true} icon={<AccountCircleFormIcon />} />
+        </Grid>
+
+        <Grid item xs={6}>
+          <InputField label="Date of Birth" required={true} icon={<CakeFormIcon />} />
+        </Grid>
+
+        <Grid item xs={6}>
+          <InputField label="Contact Language" required={true} icon={<LanguageFormIcon />} />
+        </Grid>
+
+        <Grid item xs={6}>
+          <InputField label="Phone" required={true} icon={<PhoneFormIcon />} />
+        </Grid>
+
+        <Grid item xs={6}>
+          <InputField label="Email" required={true} icon={<EmailFormIcon />} />
+        </Grid>
+
+        <Grid className="form-detail-address-container" item xs={12}>
+          <AddressInputField />
+        </Grid>
+
+        <Grid item xs={12}>
+          <InputField label="Notes/Reason" />
         </Grid>
       </Grid>
     </AccordionDetails>

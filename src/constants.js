@@ -1,5 +1,7 @@
 module.exports = {
   inputType: {
-    submit: "submit"
+    eMail: "email",
+    submit: "submit",
+    text: "text"
   }
 };
